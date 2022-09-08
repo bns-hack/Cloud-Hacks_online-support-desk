@@ -6,7 +6,7 @@ Support ticket application built with the MERN stack.
 Inspired by Oracle Cloud and Autonomous DB API support for MongoDB
 
 ## What it does
-Our API enables you to make use of managing and accessing your resources for storing PDF, TXT files and images [Blogs]
+Our APP enables you to make use of support desk and accessing your queries for any online support and issues
 
 ## How we built it
 Built around OKE Kubernetes cluster and DB tools
