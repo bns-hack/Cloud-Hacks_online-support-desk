@@ -1,0 +1,75 @@
+# MongoDB Deployment - Database
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-db
+spec:
+  selector:
+    matchLabels:
+      app: my-stack
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: my-stack
+    spec:
+      containers:
+        - name: mongo-db
+          image: mongo:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: mongo-storage
+              mountPath: /var/lib/mongo/data
+              readOnly: false
+          env:
+            - name: MONGO_USRNM
+              valueFrom:
+                secretKeyRef:
+                  name: mgusrnm
+                  key: M_USR
+            - name: MONGO_PW
+              valueFrom:
+                secretKeyRef:
+                  name: mgpwd
+                  key: M_PWD
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "250m"
+            limits:
+              memory: "4Gi"
+              cpu: "500m"
+      volumes:
+        - name: mongo-storage
+          persistentVolumeClaim:
+            claimName: my-stack-data
+---
+# Service Data Storage
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-db-service
+spec:
+  type: ClusterIP
+  selector:
+    app: my-stack
+  ports:
+    - port: 27017
+      targetPort: 27017
+---
+# Persistent Volume Claim - Data Storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-stack-data
+  labels:
+    app: my-stack
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
