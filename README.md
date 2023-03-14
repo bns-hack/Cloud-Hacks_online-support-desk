@@ -21,6 +21,8 @@ How to setup DB API for MongoDB
 How to setup deployments manifest
 
 ## Accomplishments that we're proud of
+
+![sp7](https://user-images.githubusercontent.com/11625672/225077370-4cc87b81-1bb9-4d80-b978-79f2bf3c254a.png)
 Oracle kubernetes configuration and DB setup
 
 ## What we learned
