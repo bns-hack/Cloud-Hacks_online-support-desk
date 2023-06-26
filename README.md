@@ -3,6 +3,12 @@
 
 ![sp5](https://user-images.githubusercontent.com/11625672/225077174-ba186649-5b32-43ed-a48d-f76cc2812ffe.png)
 
+<div align="center">
+  
+[![React.js](https://img.shields.io/badge/Built_with-React.js-000000?logo=react-js)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styled_with-Tailwind_CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+
+</div>
 
 Support ticket application built with the MERN stack.
 
