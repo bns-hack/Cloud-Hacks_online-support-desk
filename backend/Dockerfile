@@ -14,6 +14,6 @@ RUN npm install --${NODE_ENV}
 COPY . /usr/src/app
 
 # Expose port
-EXPOSE 5000 80
+EXPOSE 5000
 # Run the app
 CMD ["npm", "start"]

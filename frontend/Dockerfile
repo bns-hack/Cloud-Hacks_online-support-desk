@@ -10,9 +10,12 @@ RUN npm install --production
 COPY . .
 
 ARG REACT_BACK_API_URL
-ENV PORT 3000
+ENV FRONTEND_PORT 3000
+ARG REACT_BACK_API_URL
+ENV REACT_BACK_API_URL http://localhost:5000
 # Build the app
-CMD ["npm", "run", "build"]
+# CMD ["npm", "run", "build"]
+RUN npm run build
 
 # Stage 2
 # Bundle static assets with nginx
@@ -23,6 +26,6 @@ COPY --from=builder /app/build /usr/share/nginx/html
 # Add your nginx.conf
 COPY --from=builder /app/nginx_entrypoint.sh ./nginx_entrypoint.sh/
 # Expose port
-EXPOSE $PORT
+EXPOSE $FRONTEND_PORT
 # Start nginx
 ENTRYPOINT /bin/sh -x ./nginx_entrypoint.sh && nginx -g 'daemon off;'

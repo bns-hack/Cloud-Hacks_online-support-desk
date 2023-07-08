@@ -2,7 +2,7 @@ version: "3.3"
 services:
   nginx:
     ports:
-      - "8000:80"
+      - "3000:80"
   qrate-backend:
     build:
       context: .
