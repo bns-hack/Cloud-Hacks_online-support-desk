@@ -1,0 +1,13 @@
+name: Online Support App
+description: It contains a basic CRUD app to demonstrate how components connect and make it easy to start with.
+tags: [ nodejs, react, mongo ]
+icons: [ nodejs, react, mongo ]
+stack:
+  packages:
+    - name: Node.js
+      version: '18'
+    - name: React
+      version: '16.14.0'
+    - name: MongoDB
+      version: '4.4'
+discoverable: true

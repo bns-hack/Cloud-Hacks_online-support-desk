@@ -8,7 +8,7 @@ COPY package*.json ./
 
 # Copy app source code
 COPY . .
-ENV NODE_ENV prod
+ENV NODE_ENV dev
 RUN npm install --${NODE_ENV}
 # Copy app files
 COPY . /usr/src/app
