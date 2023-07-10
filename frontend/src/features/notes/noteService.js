@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/tickets/'
+const API_URL = 'https://api-pyontj.bunnyenv.com' + '/api/tickets/'
 
 // Get ticket notes
 const getNotes = async (ticketId, token) => {
