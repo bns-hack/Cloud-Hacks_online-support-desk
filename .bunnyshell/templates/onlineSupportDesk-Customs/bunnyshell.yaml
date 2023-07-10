@@ -12,6 +12,9 @@ components:
             build:
                 context: ./backend
                 dockerfile: Dockerfile
+            environment:
+                MONGO_URI: mongodb://mongo:27017/bookies
+                JWT_SECRET: 'abc12'
             ports:
                 - '5000:5000'
         hosts:
