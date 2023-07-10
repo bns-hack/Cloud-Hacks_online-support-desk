@@ -1,4 +1,4 @@
-name: Online Support App
+name: Online Support Desk App
 description: It contains a basic CRUD app to demonstrate how components connect and make it easy to start with.
 tags: [ nodejs, react, mongo ]
 icons: [ nodejs, react, mongo ]
