@@ -47,7 +47,7 @@ components:
                 context: ./frontend
                 dockerfile: Dockerfile
             environment:
-                REACT_APP_BASE_API: 'https://{{ components.api.ingress.hosts[0] }}'
+                REACT_BACK_API_URL: 'https://{{ components.api.ingress.hosts[0] }}'
             ports:
                 - '3000:3000'
         hosts:

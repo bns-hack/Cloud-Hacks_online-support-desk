@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const YOUR_REACT_BACK_APIBASE_URL='http://localhost:5000'
-const API_URL = YOUR_REACT_BACK_APIBASE_URL + '/api/users/'
+const REACT_BACK_API_URL = process.env.REACT_BACK_API_URL
+const API_URL = REACT_BACK_API_URL + '/api/users/'
 
 // Register user
 const register = async (userData) => {

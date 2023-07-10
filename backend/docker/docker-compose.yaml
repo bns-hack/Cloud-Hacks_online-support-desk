@@ -21,21 +21,24 @@ services:
       - mongo
     environment:
       - MONGO_URI=mongodb://mongo:27017/bookies
+      - JWT_SECRET='abc12'
     volumes:
       - ./backend:/usr/src/app
 
   # React frontend
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   restart: always
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - backend
-  #   volumes:
-  #     - ./frontend:/usr/src/app
+  frontend:
+    build:
+      context: /workspaces/online-support-desk/frontend
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    environment:
+      - REACT_BACK_API_URL='http://localhost:5000'
+    volumes:
+      - /workspaces/online-support-desk/frontend:/usr/src/app
 
 volumes:
   mongo-data:
