@@ -1,5 +1,5 @@
 name: Online Support Desk App
-description: It contains a basic CRUD app to demonstrate how components connect and make it easy to start with.
+description: OSD app for bunnyshell hackathon submission
 tags: [ nodejs, react, mongo ]
 icons: [ nodejs, react, mongo ]
 stack:

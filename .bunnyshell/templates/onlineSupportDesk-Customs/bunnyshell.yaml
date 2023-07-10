@@ -46,7 +46,7 @@ components:
                 dockerfile: Dockerfile
                 target: dev
             environment:
-                REACT_APP_BASE_API: 'https://{{ components.api.ingress.hosts[0] }}'
+                REACT_APP_BASE_API: 'https://api-{{ env.base_domain }}'
             ports:
                 - '3000:8080'
         hosts:
