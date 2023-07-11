@@ -1,0 +1,69 @@
+# Online Support App Bunnyshell Template
+
+> **This is the compose version, only suited for development!**
+
+```yaml
+kind: Environment
+name: OSAEnv
+type: primary
+environmentVariables:
+    JWT_SECRET: '<<BNS_SECRET>>'
+components:
+    -
+        kind: Application
+        name: backend-api
+        gitRepo: 'https://github.com/Cloud-Hacks/online-support-desk.git'
+        gitBranch: main
+        gitApplicationPath: backend
+        dockerCompose:
+            build:
+                context: ./backend
+                dockerfile: Dockerfile
+            environment:
+                MONGO_URI: 'mongodb://mongo:27017/bookies'
+            ports:
+                - '5000:5000'
+        hosts:
+            -
+                hostname: 'backend-api-{{ env.base_domain }}'
+                path: /
+                servicePort: 5000
+    -
+        kind: Database
+        name: mongo
+        dockerCompose:
+            environment:
+                MONGO_INITDB_DATABASE: bookies
+            image: 'mongo:4.4'
+            ports:
+                - '27017:27017'
+        volumes:
+            -
+                name: data-volume
+                mount: /data/db
+                subPath: ''
+    -
+        kind: Application
+        name: online-support-desk-app
+        gitRepo: 'https://github.com/Cloud-Hacks/online-support-desk.git'
+        gitBranch: main
+        gitApplicationPath: frontend
+        dockerCompose:
+            build:
+                context: ./frontend
+                dockerfile: Dockerfile
+            environment:
+                REACT_BACK_API_URL: '{{components.backend-api.ingress.hosts[0].hostname}}'
+            ports:
+                - '3000:3000'
+        hosts:
+            -
+                hostname: 'online-support-desk-app-{{ env.base_domain }}'
+                path: /
+                servicePort: 3000
+volumes:
+    -
+        name: data-volume
+        size: 1Gi
+        type: disk
+```
