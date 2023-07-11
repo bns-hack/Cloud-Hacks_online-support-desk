@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // const REACT_BACK_API_URL = process.env.REACT_BACK_API_URL
-const API_URL = 'https://backend-api-pyontj.bunnyenv.com/api/user/'
+const API_URL = 'https://backend-api-pyontj.bunnyenv.com/api/users/'
 
 // Register user
 const register = async (userData) => {
