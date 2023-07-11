@@ -5,8 +5,8 @@
 
 <div align="center">
   
-[![React.js](https://img.shields.io/badge/Built_with-React.js-000000?logo=react-js)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Styled_with-Tailwind_CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+![ReactJS](https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 </div>
 
