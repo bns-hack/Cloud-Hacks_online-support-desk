@@ -1,10 +1,12 @@
 kind: Environment
 name: OSAEnv
 type: primary
+environmentVariables:
+    JWT_SECRET: '<<BNS_SECRET>>'
 components:
     -
         kind: Application
-        name: api
+        name: backend-api
         gitRepo: 'https://github.com/Cloud-Hacks/online-support-desk.git'
         gitBranch: main
         gitApplicationPath: backend
@@ -13,12 +15,12 @@ components:
                 context: ./backend
                 dockerfile: Dockerfile
             environment:
-                MONGO_URI: mongodb://mongo:27017/bookies
+                MONGO_URI: 'mongodb://mongo:27017/bookies'
             ports:
                 - '5000:5000'
         hosts:
             -
-                hostname: 'api-{{ env.base_domain }}'
+                hostname: 'backend-api-{{ env.base_domain }}'
                 path: /
                 servicePort: 5000
     -
@@ -37,7 +39,7 @@ components:
                 subPath: ''
     -
         kind: Application
-        name: app
+        name: online-support-desk-app
         gitRepo: 'https://github.com/Cloud-Hacks/online-support-desk.git'
         gitBranch: main
         gitApplicationPath: frontend
@@ -46,12 +48,12 @@ components:
                 context: ./frontend
                 dockerfile: Dockerfile
             environment:
-                REACT_BACK_API_URL: 'https://{{ components.api.ingress.hosts[0] }}'
+                REACT_BACK_API_URL: '{{components.backend-api.ingress.hosts[0].hostname}}'
             ports:
                 - '3000:3000'
         hosts:
             -
-                hostname: 'app-{{ env.base_domain }}'
+                hostname: 'online-support-desk-app-{{ env.base_domain }}'
                 path: /
                 servicePort: 3000
 volumes:
