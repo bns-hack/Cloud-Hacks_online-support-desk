@@ -13,31 +13,10 @@
 Support ticket application built with the MERN stack.
 
 ## Inspiration
-Inspired by Oracle Cloud and Autonomous DB API support for MongoDB
+The inspiration behind the creation of the Online Support Desk App stemmed from the growing need for efficient and streamlined customer support solutions in the digital age. We recognized the importance of providing users with a platform that allows them to easily access support, receive timely assistance, and have their queries resolved effectively. With this inspiration in mind, we set out to develop an app that would revolutionize the customer support experience.
 
 ## What it does
 Our APP enables you to make use of support desk and accessing your queries for any online support and issues
-
-## How we built it
-Built around OKE Kubernetes cluster and DB tools
-
-## Challenges we ran into
-How to configure our cluster for our Networking
-How to setup DB API for MongoDB
-How to setup deployments manifest
-
-## Accomplishments that we're proud of
-
-![sp7](https://user-images.githubusercontent.com/11625672/225077370-4cc87b81-1bb9-4d80-b978-79f2bf3c254a.png)
-Oracle kubernetes configuration and DB setup
-
-## What we learned
-Kubernetes networking, DB configuration with MongoDB
-
-## What's next for Online Support Desk APP
-To integrate with more features and setup multi repos for our APP
-
-## Usage
 
 ### Set Environment Variables
 
@@ -61,4 +40,10 @@ npm install
 
 ```bash
 npm run dev
+```
+### To try out this app, you can use this following user inputs
+
+```
+Enter your email: ety@ui.co
+Enter password: hike
 ```
